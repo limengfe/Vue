@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <!-- 父组件替换插槽标签,但是内容由子组件来提供 -->
+  <div id="app">
+    <cpn></cpn>
+    <!-- 想让他们用-连接 -->
+    <cpn>
+      <template slot-scope="slot"> 
+        <span v-for="value in slot.data.join('-')">{{value}}</span><!--去掉结尾符号-->
+      </template>
+    </cpn>
+    <!-- 想让他们用*连接 -->
+    <cpn>
+      <!-- template 也可以用div -->
+      <div slot-scope="slot"> 
+        <span v-for="value in slot.data.join('*')">{{value}}</span><!--去掉结尾符号-->
+      </div>
+    </cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <slot :data="wifes">
+        <ul>
+          <li v-for="value in wifes">{{value}}</li>
+        </ul>
+
+      </slot>
+        
+    
+      
+    </div>
+  </template>
+  <script>
+    let app = new Vue({
+      el:"#app",
+      data:{
+        isShow:true,
+      },
+      components: {
+        cpn:{
+          template:"#cpn",
+          data () {
+          return {
+            wifes:['杨幂','娜扎','热巴']
+          }
+        },
+        // created () {
+        //   this.wifes.join('-');
+        // }
+        },
+       
+      }
+    })
+  </script>
+</body>
+</html>

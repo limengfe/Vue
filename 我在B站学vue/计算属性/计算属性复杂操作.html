@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>总价格:{{allAge}}</h2>
+  </div>
+  <script>
+    let app = new Vue ({
+      el:"#app",
+      data:{
+        books:[
+          {id: 1, name: "hi", age:18},
+          {id: 2, name: "nui", age:18},
+          {id: 3, name: "sun", age:18},
+          {id: 4, name: "wan", age:18},
+        ]
+      },
+      computed: {
+        allAge: function () {
+          let result = 0;
+          for(let i = 0; i<this.books.length; i++){
+            result += this.books[i].age
+          }
+          return result;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

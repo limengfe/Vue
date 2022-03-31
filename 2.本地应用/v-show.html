@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-show</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button value="点击切换事件" @click="changeShow ">有病是吧</button>
+        <button value="累加" @click="add">你妈的</button>
+         <img v-show="isShow" src="../5.图片/haizei1.png" alt="" >
+         <img  v-show="age>=18" src="../5.图片/haizei2.png" alt="">
+         
+    </div>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                isShow:false,
+                age:17
+            },
+            methods:{
+                changeShow:function(){
+                    this.isShow = !this.isShow;
+                },
+                add:function(){
+                    this.age++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <cpn></cpn>
+  </div>
+  <script>
+    // 组件1
+    let cpnC1 = Vue.extend({
+      template: `
+      <div>
+        <h3>我会成为子组件</h3>
+        </div>
+        `
+      })
+    let cpnC2 = Vue.extend({
+      template: `
+      <div>
+        <h2>我会成为父组件</h2>
+        <cpn1></cpn1>
+        </div>
+        `,
+        // 在cpnC2中注册 cpnC1将成为C2的子组件
+        // 不可以单独使用cpnC1
+       components: {
+         cpn1:cpnC1
+       }
+    })
+    
+    let app = new Vue({
+      el:"#app",
+      components: {
+        cpn:cpnC2
+      }
+    })
+  </script>
+  
+</body>
+</html>

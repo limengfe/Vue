@@ -1,0 +1,10 @@
+关于路由的相关属性
+1.to-表示目标路由的链接
+2.replace-设置 replace 属性的话，当点击时，会调用 router.replace() 而不是 router.push()，导航后不会留下 history 记录。
+3.append-设置 append 属性后，则在当前 (相对) 路径前添加其路径。例如，我们从 /a 导航到一个相对路径 b，
+     如果没有配置 append，则路径为 /b，如果配了，则为 /a/b。
+4.tag-有时候想要 <router-link> 渲染成某种标签，例如 <li>。 于是我们使用 tag prop 类指定何种标签，
+     同样它还是会监听点击，触发导航。
+5.active-class-设置 链接激活时使用的 CSS 类名。
+6.exact-active-class-配置当链接被精确匹配的时候应该激活的 class。
+7.event-声明可以用来触发导航的事件。可以是一个字符串或是一个包含字符串的数组。

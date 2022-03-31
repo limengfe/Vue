@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <cpn :ob="person" :str-ing="aa"></cpn> 
+    <!--如果绑定的有大写，此时将无法接收到父组件里传来的aaaa，而是取默认值-->
+    <!-- 可以将stRing，写成st-ing即可 -->
+  </div>
+  <template id="cpn">
+    <div>
+      <h1>{{ob}}</h1>
+      <h2>{{strIng}}</h2>
+    </div>
+  </template>
+  <script>
+     Vue.component('cpn',{
+      template:"#cpn",
+     props:{
+       ob:{
+         type:Object,
+         default(){
+           return {}
+         }
+        },
+       strIng:{
+         type:String,
+         default:[],
+       }  
+     }
+    })
+    let app = new Vue({
+      el:"#app",
+      data:{
+        person:{
+          name:"李孟飞",
+          age:18,
+          height:188
+        },
+        aa:"aaaa",
+      }
+    })
+  </script>
+</body>
+</html>

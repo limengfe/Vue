@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>路由</title>
+    <script src="../vue.js"></script>
+    <script src="../vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>你好啊</h1>
+        <p>
+            <!-- 使用router-link组件来导航 -->
+            <!-- 通过to来属性 指定连接 -->
+            <!-- <router-link>默认会被渲染成一个标签<a> -->
+                <!-- 解释的很清楚了 使用router-link引入网页路径 相当于a标签 -->
+                <router-link to="/url1">我是飞飞</router-link>         <!--页面直接显示的内容-->
+                <router-link to="/url2">我是牛牛</router-link>         <!--页面直接显示的内容-->
+        </p>
+        <!-- 路由出口 -->
+        <!-- 路由匹配的组件将渲染在这里 -->
+        <router-view></router-view>
+    </div>
+    <script>
+        //0.如果使用模块机制编程，导入Vue和 VurRouter，要调用Vue.use(VueRouter)
+
+        //1.自定义（路由）组件
+        //可以从其他文件import进来  这个也学过的  
+             const  b = {template:'<div>飞飞好</div>'};        //链接点击以后出现的内容
+             const  q = {template:'<div>牛牛吃草</div>'};      //链接点击以后出现的内容
+
+        //2.定义路由
+        // 每个路由应该映射一个组件。 其中"component" 可以是
+        // 通过 Vue.extend() 创建的组件构造器，
+        // 或者，只是一个组件配置对象。
+        const routes =[
+            {path:"/url1",component:b },                  //内部会立刻把 to 的值传到 router.push()
+            {path:"/url2",component:q},                   //内部会立刻把 to 的值传到 router.push()
+        ]
+
+        //3.创建router实例，然后再传routes的值
+        //还可以通过配置参数，但是又要麻烦点，我还不会
+        const router = new VueRouter({
+            routes   //这里时缩写  相当于写了  routes：router
+        })
+
+        //4.创建和挂载实例
+        //记得要通过router配置注入参数路由
+        //从而让整个应用都有路由功能
+        const app = new Vue({
+            router
+        }).$mount('#app')  //现在已经启动
+    </script>
+</body>
+</html>

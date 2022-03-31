@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-html</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-html='message'></p>  <!--相当于一个html代码页面-->
+        <p v-text='message'></p> <br><br> <!--相当于输出内容-->
+        <p v-html='info'></p>   <!--自己看  懂得都懂-->
+        <p v-text='info'></p>
+    </div>
+    <script>
+ var app= new Vue({
+         el:'#app',
+         data:{
+             message:"我是飞飞",
+             info:"<a href='#'>测试链接</a>"
+
+         }
+     })
+    </script>
+    
+</body>
+</html>

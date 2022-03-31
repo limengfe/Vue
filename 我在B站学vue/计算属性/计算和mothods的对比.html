@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 关于输出名字用了三种方法 -->
+    <!-- 1.拼接 -->
+    <!-- 2.方法 -->
+    <h2>{{getName()}}</h2>
+    <h2>{{getName()}}</h2>
+    <h2>{{getName()}}</h2>
+    <h2>{{getName()}}</h2>
+    <!-- 3.计算 -->
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <!-- 计算属性具有缓存效果，比methods运行优化效果好！ -->
+  </div>
+  <script>
+     let app = new Vue ({
+      el:"#app",
+      data:{
+        firstName:"李",
+        lastName:"孟飞",
+      },
+      computed: {
+        fullName() {
+          console.log('fullName');//执行了1次
+          return this.firstName + " " +this.lastName;
+        }
+      },
+      methods: {
+        getName:function(){
+          console.log("getName");//执行了4次
+          return this.firstName + " " + this.lastName;
+        }
+      },
+      
+    })
+  </script>
+</body>
+</html>

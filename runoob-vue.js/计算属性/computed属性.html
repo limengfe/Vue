@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>getter 和 setter 属性</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{site}}</p>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                name:"李孟飞",
+                age:18
+            },
+            computed: {
+            site: {
+             // getter
+            get: function () {
+            return this.name + ' ' + this.age
+           },
+            // setter
+           set: function (newValue) {
+              var names = newValue.split(' ')
+             this.name = names[0]
+             this.age = names[names.length - 1]
+      }
+    }
+  } 
+})
+        // 调用 setter， app.name 和 app.url 也会被对应更新
+        app.site = "牛牛 250";  //从新实例化对象    
+        document.write('name: ' + app.name);
+        document.write('<br>');
+        document.write('age: ' + app.age);
+    </script>
+</body>
+</html>

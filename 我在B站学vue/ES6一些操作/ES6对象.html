@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 变量保存地址：栈。栈里保存变量名和值。
+    // 对象保存地址：堆。栈李存放名和内存地址。
+
+    //对象字面量的增强写法
+    // 属性的增强写法
+    const name = "liFei";
+    const age = 18;
+    const love = "play";
+    // ES5写法
+    // const person = {
+    //   name :name,
+    //   age : age,
+    //   love: love,
+    // }
+    // console.log(person);
+
+    // ES6写法
+    const obj = {
+      name,
+      age,
+      love,
+    }
+    console.log(obj);
+
+    // 函数对象的增强写法
+    // ES5写法
+    const ob = {
+      eat:function(){},
+      play:function(){},
+    }
+    // ES6写法
+    const o ={
+      eat(){},
+      play(){},
+    }
+  </script>
+</body>
+</html>

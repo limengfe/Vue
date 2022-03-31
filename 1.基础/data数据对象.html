@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据对象</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+     <div id="app">
+           <h2>{{ins}}</h2>
+           <p> {{school.name}}：{{school.eml}}</p>
+           校区： <ul>
+               <li>{{campus[0]}}</li>
+               <li>{{campus[1]}}</li>
+           </ul>
+     </div>
+<script>
+    var app = new Vue({
+        el:'#app',
+        data:{
+            ins:"名人榜",
+            school:{
+             name:'河南工程学院',
+             eml:"444250"
+            },
+            campus:['西区','南区']
+        }
+    })
+</script>
+</body>
+</html>

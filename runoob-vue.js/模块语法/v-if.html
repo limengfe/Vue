@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="ok"> 看的到吗</h1>
+        <h2 v-if="yes">当然</h2>
+        <h2 v-if="no">看不到吧</h2>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                ok:true,
+                yes:true,
+                no:false
+            }
+        })
+    </script>
+</body>
+</html>

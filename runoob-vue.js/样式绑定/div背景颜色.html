@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <script src="../vue.js"></script>
+    <style>
+        .active{
+            width: 100px;
+            height: 100px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div :class="{active:isActive}"></div>  <!--可以用对象的返回格式写-->
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                isActive:true,
+            }
+        })
+    </script>
+</body>
+</html>

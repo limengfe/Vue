@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 单选 -->
+    <label for="agree">
+      <input type="checkbox"  id="agreen" value="agree" v-model="isAgree">我已阅读并同意协议
+    </label><br>
+    <h2>你选择的是:{{isAgree}}</h2>
+    <button :disabled="!isAgree">下一步</button><br>
+
+    <!-- 多选框 -->
+    <label for="ag">
+      <input type="checkbox"  id="ag" value="杨幂" v-model="allAgree">杨幂
+      <input type="checkbox"  id="ag" value="娜扎" v-model="allAgree">娜扎
+      <input type="checkbox"  id="ag" value="热巴" v-model="allAgree">热巴
+    </label>
+    <h2>你的老婆是：{{allAgree}}</h2>
+  </div>
+  <script>
+    let app = new Vue ({
+      el:"#app",
+      data:{
+        message:"你好啊",
+        isAgree:false,
+        allAgree:[],
+      }
+    })
+  </script>
+</body>
+</html>

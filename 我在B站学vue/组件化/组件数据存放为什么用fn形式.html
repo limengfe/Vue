@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn></cpn>
+  </div>
+  <template id="cpn1">
+    <div>
+    <p>当前计数:{{counter}}</p>
+    <button @click="add">+</button>
+    <button @click="sub">-</button>
+  </div>
+  </template>
+  <script>
+    Vue.component('cpn',{
+     template:"#cpn1",
+    //  此处可以存放数据
+    //  关于此处data为什么是个函数，很重要，
+    // 如果不是函数的话，如果上面调用了3次，那其中有一项改变，所有的counter的值都会被改变。
+    // 变量修改，所有的这个变量肯定会修改。
+    // 函数的话也属于对象，都有自己的内存地址，每次使用的组件保存地址都不一样，组件使用，不会相互影响。
+     data () {
+       return {
+         title:"我是标题",
+         counter:0
+       }
+     },
+    //  组件里也有自己方法
+     methods: {
+       add(){
+         this.counter++;
+       },
+       sub(){
+         this.counter--;
+       }
+     }
+    })
+    let app = new Vue({
+      el:"#app",
+      data:{
+        message:"hello",
+        title:"我是标题"
+      }
+    })
+  </script>
+</body>
+</html>

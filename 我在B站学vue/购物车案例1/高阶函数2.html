@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 关于对数组处理3次
+    // 例如
+    // 第一次找出小于100的值
+    // 第二次*2
+    // 第三次算出和
+    
+    let arr = [66,99,21,111,911];
+    // 一般写法
+    //  第一步遍历找出小于10
+    let arr1 = [];
+    for(let value of  arr){
+       if(value < 100){
+         arr1.push(value);
+       }
+      }
+      console.log(arr1);
+
+      // 第二步遍历*2
+      let arr2 = [];
+      for(let value of arr1){
+        arr2.push(value*2);
+      }
+      console.log(arr2);
+
+      // 第三步遍历求和
+      let sum = 0
+      for(let value of arr2){
+         sum += value;
+        }
+        console.log(sum);
+      //做出来了，但是可读性很差，性能也不好。
+      // 所以使用filter.map.reduce一部到位。
+      // filter过滤器，mapES6经典用法，reduce有二个参数一个是保存之前，一个是新的，所以结尾设置起始值为0
+      let s = arr.filter(function(n){
+        return n<100;
+      }).map(function(n){
+        return n*2
+      }).reduce(function(preSum,n){
+        return preSum + n
+      },0) 
+      console.log(s);//372
+      // 如果用箭头函数更简单
+      // 使用箭头函数
+      let s1 = arr.filter(n=>n<100).map(n=>n*2).reduce((preSum,n)=> preSum+n,0) ;
+      console.log(s1);//372
+        
+     
+    
+  </script>
+</body>
+</html>

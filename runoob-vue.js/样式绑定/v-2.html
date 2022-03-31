@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../vue.js"></script>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:style="object">菜鸟教程</div>
+        <!-- 为什么用的是fontSize -->
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{ 
+                //相当于直接把想要的写入  感觉根本没必要一个简单的样式 
+                object:{
+                    color:"red",
+                    fontSize:'30px'
+                }
+               
+                },
+        })
+     
+    </script>
+</body>
+</html>

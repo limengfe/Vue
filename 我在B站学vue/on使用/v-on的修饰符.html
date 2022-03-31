@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 1..stop阻止冒泡事件 -->
+    <div @click="btn1">aaa
+      <button @click.stop="btn1">按钮1</button><!--点击button时，同时也会触发div.-->
+    </div><br>
+    <!-- 2..prevent阻止默认事件 -->
+    <form action="baidu">
+      <input type="submit" value="提交" @click.prevent="btn2"><!--想要查看点击事件，但是表单也会提交-->
+    </form><br>
+    <!-- 3.监听键盘事件 -->
+    <input type="text" @keyup.enter="keyUp">
+  </div>
+  <script>
+    let app = new Vue({
+      el:"#app",
+      data:{
+        
+      },
+      methods: {
+        btn1(){
+          console.log('btn1');
+        },
+        btn2(){
+          console.log('btn2');
+        },
+        keyUp(){
+          console.log('keyUp')
+        }
+      }
+    })
+  </script>
+</body>
+</html>

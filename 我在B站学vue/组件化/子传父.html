@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div id="counter-event-example">
+      <p>{{ total }}</p>
+
+      <!--这里使用了两个子组件，因为子组件的data是函数，所以它们的值互不影响-->
+      <!--父组件在使用子组件的地方直接用 v-on 来监听子组件触发的事件。-->
+      <button-counter v-bind:idx="1" v-on:increment="appAddCounter"></button-counter>
+      <button-counter v-bind:idx="2" v-on:increment="appAddCounter"></button-counter>
+    </div>
+  </div>
+
+  <script>
+    Vue.component('button-counter', {
+      //1.使用 $on(eventName)监听事件
+      template: '<button v-on:click="addCounter">第{{idx}}个子组件： {{ counter }}</button>',
+      props:['idx'],
+      data: function() {
+        return {
+          counter: 0
+        }
+      },
+      methods: {
+        //子组件的自定义事件  
+        addCounter: function() {
+          this.counter += 1;
+          var str ='我是第'+this.idx+'个子组件,我的值为：'+this.counter;
+          //2.使用 $emit(eventName,obj) 触发事件   
+          //increment: 是父组件指定的传数据绑定的函数，str: 子组件给父组件传递的数据
+          this.$emit('increment',str);
+        }                                                                                                                                                            
+      },
+    })
+
+    
+    new Vue({
+      el: '#counter-event-example',
+      data: {
+        total: 0
+      },
+      methods: {
+appAddCounter: function(e) {
+          console.log('子组件传的值：',e)
+          this.total += 1
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

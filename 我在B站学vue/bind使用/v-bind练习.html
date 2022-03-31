@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        
+        <script src="../vue.js"></script>
+        <style>
+       
+            .active{
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+            <div id="app">
+                <ul>
+                    <li v-for="(item,index) in movies" v-on:click="act(index)"
+                     v-bind:class="{active: index==changeindex}" >{{item}}</li>
+                     
+                </ul>
+            </div>
+        
+        <script>
+            const app = new Vue({
+                el:'#app',
+                data:{
+                    movies:['大话西游','一生所爱','大圣娶亲','月光宝盒'],
+                    //设置为0，默认使active在index[0]生效
+                    changeIndex : 0
+                },
+                methods: {
+                    //设置点击函数
+                    act : function(index){
+                        //
+                        this.changeIndex = index;
+                    }   
+                },
+            })
+        </script>
+    </body>
+</html>

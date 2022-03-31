@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 如何选择使用if还是show，当切换一次时使用if，频繁切换时使用show -->
+
+    <!-- v-if,当值为false时，DOM完全没有对应的元素 -->
+    <h2 v-if="isShow">{{message}}</h2>
+    <!-- v-show，当值为false时，DOM找到对于的元素，此时元素增加行内样式display：none -->
+    <h2 v-show="isShow">{{message}}</h2>
+  </div>
+  <script>
+    let app = new Vue ({
+      el:"#app",
+      data:{
+        message:"你好啊",
+        isShow:true
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+         {{info}}
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                info:null
+            },
+            mounted(){          // 直接在 URL 上添加参数 ID=12345
+                axios.get('https://autumnfish.cn/api/joke?id=12345',{
+                    // 也可以通过 params 设置参数name="niu"：
+                    params:{
+                        name:'niu'
+                    }
+                }) 
+                .then((response) => {
+                    this.info = response.data
+                }).catch((err) => { 
+                    console.log(err)
+                });
+            }
+        })
+    </script>
+</body>
+</html>

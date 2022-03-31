@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>读取数据</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{info}}
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                info:null
+            },
+            mounted(){                                       //也可以在URL后加逗号  然后把参数放一个大括号里面
+                axios.get('https://autumnfish.cn/api/joke')  //可以在URL后面加上？，开始传递参数，
+                .then(response=>(this.info = response))   //可以添加加上请求属性。比如data，length。
+                .catch(function(error){
+                    console.log(error);
+                })
+            }
+        })
+    </script>
+</body>
+</html>

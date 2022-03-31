@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../vue.js"></script>
+    <style>
+      
+    </style>
+</head>
+<body>
+   
+    <div id="app">
+
+    </div>
+    <script>
+        Vue.mixin({
+            created:function(){
+                var myOption = this.$options.myOption
+                if(myOption){
+                    document.write(myOption)
+                }
+            }
+        })
+        new Vue({
+           // mixins:[mixin],   加上就不会显示
+            myOption:'hello '
+        })
+    </script>
+</body>
+</html>

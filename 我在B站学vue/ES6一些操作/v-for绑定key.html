@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="value in num " :key="value">{{value}}</li>
+      <!-- 此时
+      0--A
+      1--B
+      2--C
+      3--D
+      4--E
+      -->
+      <!-- 如果不用:key，在num中添加一个值，添加位置到最后的索引都会变化，这样开发效率会很低 -->
+      <!-- 主要就是为了提高虚拟DOM的效率 -->
+    </ul>
+  </div>
+  <script>
+    let app = new Vue ({
+      el:"#app",
+      data:{
+        message:"你好啊",
+        num:['A','B','C','D','E']
+      }
+    })
+  </script>
+</body>
+</html>

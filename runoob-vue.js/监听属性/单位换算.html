@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>千米与米</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       千米：<input type="text" v-model ="km" >
+       米：<input type="text" v-model="m">  
+    </div>
+    <p id="info"></p>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                km:0,
+                m:0
+            },
+            methods:{
+
+            },
+            computed:{
+
+            },
+            watch : {
+               km:function(value) {   //在km的数据上
+                  this.km = value;   // value 是多少 km不变                      1km
+                  this.m = this.km * 1000  //   km是多少    需要×1000给m         1*1000 m
+               },
+               m : function (value) { //在m数据上
+                  this.km = value/ 1000;  //  value也就是m/1000 给km    1000m/1000   =1km
+                  this.m = value;         //  value就是m的数值           1000
+               }
+            }
+        })
+        //$watch 是一个实例方法
+        app.$watch('km',function(newValue,oldValue){
+            document.getElementById("info").innerHTML = 
+            "修改前的值为：" +oldValue +   --"修改后的值" +newValue;
+        })
+    </script>
+</body>
+</html>

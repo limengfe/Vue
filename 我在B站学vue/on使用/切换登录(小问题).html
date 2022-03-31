@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+   <div id="app">
+     <!-- 由于vue底层虚拟DOM，所以登录时敲入数字，然后切换登录方式，敲入的数字会没有消失。 -->
+     <!-- Vue和React都是具有虚拟DOM的，具有缓存效果，当程序运行时会保存，复用一些数据 -->
+     <!-- 此处解决使用key解决登录input登录复用问题 -->
+     <span v-if="isUser">
+       <label for="username">用户账号</label><!--label增强用户体验，for对input的id名-->
+       <input type="text" name="" id="username" placeholder="用户账号" key="uname">
+     </span>
+     <span v-else>
+       <label for="email">邮箱账号</label><!--label增强用户体验，for对input的id名-->
+       <input type="text" name="email" id="" placeholder="邮箱账号">
+     </span>
+     <button @click=" isUser =!isUser">切换登录</button>
+   </div>
+   <script>
+     let app = new Vue({
+       el: "#app",
+       data:{
+         isUser:true,
+       }
+     })
+   </script>   
+</body>
+</html>

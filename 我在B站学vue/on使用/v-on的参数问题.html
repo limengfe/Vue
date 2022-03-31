@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 效果一样，当方法没传参数时，括号可以省略 -->
+    <button @click="btn1">按钮1</button>
+    <button @click="btn1()">按钮1</button>
+    
+    <button @click="btn2">按钮2</button><!--此时vue将会让产生的事件参入参数PointerEvent {isTrusted: true, …}-->
+    <button @click="btn2()">按钮2</button><!--undefined-->
+    <button @click="btn2('aa')">按钮2</button><!--aa-->
+
+    <!-- 如果参数多个参数，也想查看其事件值此时实参用$event -->
+    <button @click="btn3(18,'男',$event)">按钮3</button>
+    <button>按钮4</button>
+  </div>
+  <script>
+    let app = new Vue({
+      el:"#app",
+      data: {
+
+      },
+      methods: {
+        btn1() {
+          console.log('hello!');
+        } ,
+        btn2(name){
+          console.log(name)
+        },
+        btn3(age,gender,event){
+          console.log('今年'+age+'性别'+gender+'事件'+event)
+        }
+      }
+    })
+  </script>
+</body>
+</html>

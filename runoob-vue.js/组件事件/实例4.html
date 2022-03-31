@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+      <base-checked  v-model="lovingVue"></base-checked>
+      <div v-show="lovingVue">如果选择框打勾我就出现</div>
+    </div>
+    <script>
+        //注册
+        Vue.component('base-checked',{   //base-checked 标签名
+            model:{
+             prop:'checked',
+             event:'change'  //onChange事件
+            },
+            props:{
+                checked:Boolean
+            },
+            //标签语句  写了一个单选框  ：checked...默认选中   changes-自定义事件名    指向事件目标选中时就change
+            template:`
+            <input type="checkbox" :checked="checked"  @change ="$emit('change',$event.target.checked)">
+            `
+        })
+        var app = new Vue({
+            el:"#app",
+            data:{
+               lovingVue:true
+            },
+           
+        })
+    </script>
+</body>
+</html>

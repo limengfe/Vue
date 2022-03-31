@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+       <ul>
+           <child v-for="value in sites" v-bind:message="value"></child>
+       </ul>
+    </div>
+    <script>
+        Vue.component('child',{
+            props:['message'],
+            template:"<li>{{message.text}}<li>"
+        })
+        var app = new Vue({
+            el:"#app",
+            data:{
+              sites:[
+                  {text:'Runoob'},
+                  {text:'Google'},
+                  {text:'Taobao'},
+              ]
+            },
+           
+        })
+    </script>
+</body>
+</html>

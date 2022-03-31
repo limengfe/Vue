@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+         <input type="radio" id="runoob" value="飞飞" v-model="picked">    <!--选中时的值-->
+         <label for="runoob" >飞飞</label><br> <br>                         <!--显示在网页上的值-->
+         <input type="radio" id="run" value="牛子" v-model="picked">        <!--选中时的值-->
+         <label for="run" >牛子</label><br><br>                             <!--显示在网页上的值-->
+
+         <span>选中的值是:{{picked}}</span>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+               picked:'飞飞',
+            },
+            methods:{
+
+            },
+            computed:{
+
+            },
+            watch:{
+
+            },
+        })
+    </script>
+</body>
+</html>

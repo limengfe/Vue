@@ -1,0 +1,7 @@
+body{
+  /* background-color: aqua; */
+  background-image:url('../img/haizei1.png')
+}
+/* 打包css样式需要较新的局部webpack版本来支持 css-loader和style-loader */
+/* 打包图片需要安装file-loader 和 url-loader并且进行配置，但是新版本的webpack并不需要安装也能读取到 */
+/* 也不需要安装 babel让ES6转为ES5 */

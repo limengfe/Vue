@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>site:{{site}}</h1>
+        <h1>url:{{url}}</h1>
+        <h1>Alexa:{{alexa}}</h1>
+    </div>
+    <script>
+        var data={site:'菜鸟',url:"www.runoob.com",alexa:1000}//全局变量
+       var app = new Vue({
+           el:"#app",
+           data:data,//引入外部数据
+       })
+       document.write(app.site === data.site);
+       document.write("<br>")
+
+        data.site = "Runoob"; //可以修改
+        document.write(app.site);//始终指向修改以后的
+        document.write("<br>")
+
+        app.alexa = 1234;//同上 懂得都懂
+        document.write(data.alexa);
+</script>
+</body>
+</html>

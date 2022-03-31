@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+   <runoob-input v-model="num"></runoob-input>   <!--传的是值value 不是选项checked-->
+    <p>输入的数字为：{{num}}</p> 
+</div>
+    <script>
+        Vue.component('runoob-input',{
+            props:['value'],   //名为value的props
+            //标签的语句                         input-事件名   事件目标为值时 就input
+            template:`                               
+               <input ref="input"  :value="value"  @input ="$emit('input',$event.target.value)">
+            `
+        })
+        var app = new Vue({
+            el:"#app",
+            data:{
+                num:100,
+            },
+           
+        })
+    </script>
+</body>
+</html>

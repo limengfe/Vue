@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn></cpn>
+    <cpn ref="aaa"></cpn>
+    <button @click="sw()">按钮</button>
+  </div>
+  <template id="cpn">
+    <div>我是子组件</div>
+  </template>
+  <script>
+    let app = new Vue({
+      el:"#app",
+      data:{
+
+      },
+      methods: {
+        show(){
+          // 因为children访问形式以数组展示，所以使用时需要用索引，这样在开发中是麻烦事
+          console.log(this.$children);//此时可以查看到子组件
+          this.$children[0].showMessage(); //此时调用了子组件的方法
+          console.log(this.$children[0].name)//也可以访问数据
+        },
+        // 所以还有个属性开发用的较多就是.$refs※用的很多
+        // 因为他返回类型是对象，对象操作就很方便，只需要在使用子组件的地方加refs=""即可
+        sw(){
+          console.log(this.$refs);//对象
+          console.log(this.$refs.aaa.name);//打印子组件的数据
+          this.$refs.aaa.showMessage();//调用子组件的方法
+          
+        }
+      },
+      // 创建局部子组件
+      components: {
+        cpn:{
+          template:"#cpn",//子组件名
+          data () {
+            return {
+              name:"我是子组件的数据"
+            }
+          },
+          methods: {
+            showMessage(){
+              console.log('我是子组件的方法！')
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+</html>

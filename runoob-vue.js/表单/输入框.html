@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+         <p> input元素:</p>
+         <input v-model="message" placeholder="=编辑我...." type="text">
+            <p>消息是：{{message}}</p><br><br>
+
+            <p>textarea元素</p>
+            <p style="white-space:pre">{{message2}}</p>
+            <textarea v-model="message2" placeholder="多行输入..."></textarea>  <!--相当于一个输入框  -->
+        </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+             message:"飞飞",
+             message2:'菜鸟教程\r\nhttp://www.runoob.com'
+            },
+            methods:{
+
+            },
+            computed:{
+
+            },
+            watch:{
+
+            },
+        })
+    </script>
+</body>
+</html>

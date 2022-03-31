@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 单选 -->
+    <label for="sel">
+      <select name="love" id="sel" v-model="isSelect">
+        <option value="杨幂">杨幂</option>
+        <option value="娜扎">娜扎</option>
+        <option value="热巴">热巴</option>
+        <option value="蚂蚱">蚂蚱</option>
+      </select>
+      <h4>你的老婆：{{isSelect}}</h4>
+    </label>
+      <!-- 多选 -->
+      <label for="xz">
+        <select name="love" id="xz" v-model="allSelect" multiple><!--就添加一个multiple，选择是按CTRL-->
+          <option value="杨幂">杨幂</option>
+          <option value="娜扎">娜扎</option>
+          <option value="热巴">热巴</option>
+          <option value="蚂蚱">蚂蚱</option>
+        </select>
+        <h4>你的老婆：{{allSelect}}</h4>
+      </label>
+    
+  </div>
+  <script>
+    let app = new Vue ({
+      el:"#app",
+      data:{
+        message:"你好啊",
+        isSelect:'娜扎',
+        allSelect:[],
+      }
+    })
+  </script>
+</body>
+</html>

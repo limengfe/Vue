@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 关于遍历求总价
+    let books = [
+      {id:1,name:"第一本",price:55},
+      {id:2,name:"第二本",price:88},
+      {id:3,name:"第三本",price:99},
+      {id:4,name:"第四本",price:66},
+    ]
+    // 第一种
+    // let num = 0;
+    // for(let i=0; i<books.length; i++ ){
+    //   num += books[i].price;
+    // }
+    // console.log(num);
+
+    // 第二种
+    // let num = 0;
+    // for(let i in books){ //in遍历得到的好像还是索引
+    //   num += books[i].price;
+    //   }
+    //   console.log(num);
+
+    // 第三种
+      let num = 0;
+      for(let i  of books){ //of得到的是四个对象
+        num += i.price;
+      }
+      console.log(num);
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on传参</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点击" @click="doIt('好啊！','好好好！')" >
+        <input type="text" @keyup.enter="sayHi">
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            methods:{
+                doIt:function(p1,p2){
+                    console.log("牛牛好！");
+                    console.log(p1);
+                    console.log(p2);
+                },
+                sayHi:function(){
+                    alert("我是牛牛！")
+                }
+            }
+        })
+    </script>
+</body>
+</html>

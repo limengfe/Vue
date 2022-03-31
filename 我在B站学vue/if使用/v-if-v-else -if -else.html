@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 但是开发中很少用，因为看起来很繁琐 -->
+    <!-- <h2 v-if='score >= 90'>优秀</h2>
+    <h2 v-else-if='score >= 80'>良好</h2>
+    <h2 v-else='score >= 60'>一般</h2> -->
+
+    <!-- 这样更好 -->
+    <h2>{{result}}</h2>
+  </div>
+  <script>
+    let app = new Vue({
+      el: "#app",
+      data:{
+        score: 99,
+      },
+      // 为什么用methods不可以？
+      computed: {
+        result(){
+          let num = '';
+          if(this.score >= 90){
+            num = '优秀'
+          } else if (this.score >= 80){
+            num = '良好';
+          }else{
+            num = '一般'
+          }
+          return num;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

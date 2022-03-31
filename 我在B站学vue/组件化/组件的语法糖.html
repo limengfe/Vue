@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <cpn1></cpn1>
+     <cpn2></cpn2>
+  </div>
+ 
+  <script>
+     // 全局创建+注册
+     //和React一样
+     //这里注册组件
+     //使用：React.DOM('cpn','写法');
+    Vue.component('cpn1',{
+      template: `
+      <div>
+        <h2>你好</h2>
+        <h2>你好，哈哈哈</h2>
+        </div>
+      `
+    })
+  
+    const app = new Vue({
+      el:"#app",
+      data:{
+
+      },
+      //局部使用语法糖
+      components: {
+        cpn2:{
+      template: `
+      <div>
+        <h2>你好</h2>
+        <h2>你好，呵呵呵</h2>
+        </div>
+      `
+    }
+      }
+
+    })
+  </script>
+</body>
+</html>

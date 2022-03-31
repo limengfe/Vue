@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 使用插槽，可以在cpm中使用其他标签添加自己需要的 -->
+    <cpm><button>按钮</button></cpm>
+    <cpm><p>哈哈</p></cpm>
+    <cpm><i>呵呵</i></cpm>
+    <cpm><button>按钮</button></cpm>
+  </div>
+  <template id="cpm">
+    <div>
+      <h2>我是组件</h2>
+      <!-- 定义插槽 -->
+      <!-- 一般都会放一个，以便有需要 -->
+      <slot></slot>
+      <!-- 插槽可以使用默认值 -->
+      <!-- <slot><button>按钮</button></slot> -->
+    </div>
+    
+  </template>
+  <script>
+
+    let app = new Vue({
+      el:"#app",
+      components: {
+        cpm:{
+          template:"#cpm"
+        }
+      }
+    })
+  </script>
+</body>
+</html>

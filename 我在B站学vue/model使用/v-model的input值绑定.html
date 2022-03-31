@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    
+
+    <!-- 多选框 -->
+    <label for="lv" v-for= " item in allLove">
+      <input type="checkbox"  id="lv" :value="item" v-model="ad">{{item}}
+    </label>
+    <h2>你的爱豆是：{{ad}}</h2>
+  </div>
+  <script>
+    let app = new Vue ({
+      el:"#app",
+      data:{
+        message:"你好啊",
+        allLove:['杨幂','娜扎','热巴','胡歌','于晏'],//值写此处，不写死
+        ad:[],
+      }
+    })
+  </script>
+</body>
+</html>

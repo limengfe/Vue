@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>{{allName}}</h2> <!--李 孟飞-->
+    
+   
+
+  </div>
+  <script>
+    let app = new Vue ({
+      el:"#app",
+      data:{
+        firstName:"李",
+        lastName:"孟飞",
+      },
+      computed: {
+        fullName() {
+          return this.firstName + " " +this.lastName;
+          //其实这是简写
+        },
+        //完整写法
+        //因为开发中一般不用设置属性
+        //所以计算属性只有读属性，即get  又所以缩写方便。
+        allName: {
+          // set: function(newValue) {
+          //   const names = newValue.split();
+          //   this.firstName = names[0];
+          //   this.lastName = names[1];
+          // },
+          get: function() {
+           return this.firstName + ' ' + this.lastName;
+          }
+        }
+      },
+      
+    })
+  </script>
+</body>
+</html>

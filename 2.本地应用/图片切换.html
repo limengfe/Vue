@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 图片切换</title>
+    <script src="../vue.js"></script>
+    
+    <style>
+        div{
+           width: 500px;
+           height: 400px;
+           border: 2px solid blue;
+           margin: 100px auto;
+           
+        }
+         #left{
+            float: left;
+            width: 50px;
+            height: 80px;
+            background-color: yellowgreen;
+            
+        }
+        #right{
+            float: right;
+            width: 50px;
+            height: 80px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="mask">
+        <!-- 左箭头 -->
+        <div id="left"></div>
+        <!-- 右箭头 -->
+        <div id="right"></div>
+    </div>
+    <script>
+        var app  = new Vue({
+            el:"#mask",
+            data:{
+                imaArr:[
+                "../5.图片/haizei1.png",
+                "../5.图片/haizei2.png",
+                "../5.图片/haizei3.png",
+                "../5.图片/haizei4.png",
+                "../5.图片/haizei5.png",
+                "../5.图片/haizei6.png",
+                "../5.图片/haizei7.png",
+                 ],
+                 index:0
+                 },
+                 methods:{
+                     add:function(){
+                         this.index++;
+                     },
+                     sub:function(){
+                         this.index--;
+                     }
+                 }
+        })
+    </script>
+</body>
+</html>

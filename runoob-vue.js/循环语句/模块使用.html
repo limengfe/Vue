@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+   <div id="app">
+       <ul>
+           <template v-for="site in list">
+            <li>{{site.name}}</li>  
+            <li>_____</li>
+           </template>
+           
+       </ul>
+   </div>
+   <script>
+       var app = new Vue({
+           el:"#app",
+           data:{
+               list:[
+                   {name:'杨幂'},
+                   {name:'娜扎'},
+                   {name:'热巴'}
+               ]
+           }
+       })
+   </script> 
+</body>
+</html>

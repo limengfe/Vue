@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 如果右需要想把中间的修改了，就需要使用name -->
+   <cpm ><span slot="center">中</span></cpm>
+   <!-- 左边 中 右边 -->
+  </div>
+  <template id="cpm">
+    <div>
+      <h2>我是组件</h2>
+      <!-- 定义了默认值 -->
+      <slot name="left"><span>左边</span></slot>
+      <slot name="center"><span>中间</span></slot>
+      <slot name=:right><span>右边</span></slot>
+    
+     
+    </div>
+    
+  </template>
+  <script>
+
+    let app = new Vue({
+      el:"#app",
+      components: {
+        cpm:{
+          template:"#cpm"
+        }
+      }
+    })
+  </script>
+</body>
+</html>

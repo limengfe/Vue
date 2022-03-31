@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>牛庆是{{runoob}}</h1>
+        <h1>马大哈{{rox}}</h1>
+        <h1>他{{hh()}}</h1>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                runoob:"菜鸟",
+                rox:"是牛子",
+                 wy:"会不会打我"
+            },
+            methods:{
+               hh:function(){
+                   return this.wy+"-他不敢得。"
+               }
+            }
+        })
+    </script>
+</body>
+</html>

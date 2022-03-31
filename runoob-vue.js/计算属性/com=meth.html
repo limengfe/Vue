@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>computer</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>原始字符串：{{message}}</p>
+         <p>计算属性反转字符串：{{reversedMessage}}</p>
+         <p>方法属性：{{reverse()}}</p>  <!--方法的话需要去调用-->
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"HELLO"
+            },
+            methods:{
+            reverse:function(){
+                return this.message.split('').reverse().join('');
+            }
+            },
+            computed:{
+                reversedMessage:function(){
+                    return this.message.split('').reverse().join('');//不加 '' 会出现，空隔
+                }
+            },
+            
+        })
+    </script>
+</body>
+</html>

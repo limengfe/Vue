@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="../vue.js"></script>
+    <style>
+      
+    </style>
+</head>
+<body>
+   
+    <div id = "databinding"></div>
+
+    </div>
+    <script>
+        var mixin={
+            methods:{
+                hello:function(){
+                    document.write('hello'+'<br>');
+                },
+                sameMethods:function(){
+                    document.write('混入的same'+'<br>');
+                }
+            }
+        }
+        var vm = new Vue({
+            mixins:[mixin],
+            methods:{
+                start:function(){
+                    document.write('start方法'+'<br>')
+                },
+                sameMethods:function(){
+                    document.write('Vue里的same'+'<br>')
+                }
+            }
+        });
+        vm.hello();
+        vm.start();
+        vm.sameMethods();
+    </script>
+</body>
+</html>

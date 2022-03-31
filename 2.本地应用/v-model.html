@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="修改" @click="setM">
+        <input type="text" v-model="message" @keyup.enter="getM">
+        <h4>{{message}}</h4>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"飞飞好"
+            },
+            methods:{
+                getM:function(){
+                  alert(this.message)
+                },
+                setM:function(){
+                this.message="牛牛"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

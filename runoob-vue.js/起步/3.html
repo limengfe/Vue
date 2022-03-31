@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>姓名：{{name}}</h1>
+        <h1>年纪：{{age}}</h1>
+        <h1>爱好：{{love}}</h1>
+    </div>
+    <script>
+        var data = {name:"飞飞",age:18,love:"yellow"}
+        var app = new Vue({
+            el:"#app",
+            data:data  //把块外变量引入进来。
+        })
+        document.write(app.$data === data);//加上$说明是vue得属性  方便你弄混。
+        document.write("<br>");
+        document.write(app.$el === document.getElementById("app"));//自己好好理解
+    </script>
+</body>
+</html>

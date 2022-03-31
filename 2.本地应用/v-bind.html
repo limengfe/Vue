@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind</title>
+    <script src="../vue.js"></script>
+    <style>
+        .active{
+            border: 5px solid yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+     <img v-bind:src="src" :title="imgTitle+'!' " alt="" ><br>
+     <img :src="ss" alt=""><br>
+     <img :src="src" :class={active:isActive} @click="isChange" alt="">
+
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                src:"../5.图片/haizei1.png",
+                ss:"../5.图片/haizei2.png",
+                imgTitle:"你说好看不好看",
+                isActive:false
+            },
+            methods:{
+               isChange:function(){
+                this.isActive = !this.isActive;
+               }
+            }
+        })
+    </script>
+</body>
+</html>

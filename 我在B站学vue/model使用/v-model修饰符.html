@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 1.lazy懒加载，在数据输完再绑定 -->
+    <label for="int">
+      <input type="text"  id="int" v-model.lazy="value">{{value}}
+    </label><br>
+    <!-- 2.number自动转化数字 -->
+    <label for="num">
+      <input type="number"  id="num" v-model.number="lx">{{lx}}<!--type选为number，但是数据绑定仍然为String-->
+    </label>
+    <h2>输入的类型是：{{typeof lx}}</h2>
+    <!-- 3.trim修理 去除空格 -->
+    <label for="sp">
+      <input type="text"  id="sp" v-model.trim="zhi">{{zhi}}
+    </label><br>
+  </div>
+  <script>
+    let app = new Vue ({
+      el:"#app",
+      data:{
+        value:"",
+        lx:'',
+        message:"你好啊",
+        zhi:''
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <!-- 双项数据绑定其实就是和运用二次操作一样绑定value属性，绑定input事件 -->
+
+    <!-- 双项绑定1 -->
+    <input type="text" v-model="message" name="" id="">{{message}}
+
+    <!-- 双向绑定2. -->
+    <!-- <input type="text" :value="message">{{message}}如果这样绑定数据，输入时数据不会更新 -->
+    <input type="text" :value="message" @input="changeMessage" >{{message}}
+  </div>
+  <script>
+    let app = new Vue ({
+      el:"#app",
+      data:{
+        message:"你好啊",
+      },
+      methods: {
+        changeMessage(event){
+         this.message = event.target.value;
+        }
+      }
+    })
+  </script>
+</body>
+</html>

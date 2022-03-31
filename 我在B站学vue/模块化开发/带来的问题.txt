@@ -1,0 +1,22 @@
+一个项目三个人做 项目经理,我和猪丽.
+我的文件里定义name = '李孟飞',猪丽的文件也定义了name,且name="爸爸".
+然后我又写一个文件,查看name是否等于"李孟飞",此时结果为false.
+这就是其中一个问题.
+
+解决1. 一种闭包--但是闭包以后，你就无法使用其他页面的功能
+解决2.CommonJS的导入和导出
+解决3.ES6的导出，导出，export和import
+导出
+module.export = {
+  flag:true,
+  test(a,b){
+    return a+b
+    },
+    demo(a,b){
+      return a*b
+  }
+}
+导入
+let {test,demo,flag} = require('module');
+这个一看就是node写法。非常熟悉了。
+

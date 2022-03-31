@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-for</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" @click="add" value="添加数据">
+        <input type="button" @click="remove" value="移除数据">
+        <p v-for="(item,index) in arr">{{index+1}}姓名：{{item}}</p>
+        <h2 v-for="item in love " :title="item.name">
+            {{item.name}}
+        </h2>
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                arr:['飞飞','牛牛','阿飞','牛子'],
+                love:[
+                    {name:"喜欢热巴"},  
+                    {name:"喜欢娜扎"}
+                ]
+               },
+               methods:{
+                    add:function(){
+                        this.love.push({name:"还是杨幂舒服"});
+                    },
+                    remove:function(){
+                        this.love.shift();
+                    }
+                } 
+        })
+    </script>
+</body>
+</html>
